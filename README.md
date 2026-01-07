@@ -121,3 +121,4 @@ Each waitlist member gets a unique referral code. When someone signs up with `?r
 ## License
 
 MIT
+# StudySproutLandingPage
