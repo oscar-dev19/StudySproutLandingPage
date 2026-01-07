@@ -16,7 +16,7 @@ A clean, calm landing page for joining the StudySprout beta waitlist with referr
 - TypeScript
 - Tailwind CSS
 - Supabase (PostgreSQL)
-- Vercel Hosting (Hobby Tier)
+- Netlify Hosting
 
 ## Setup
 
@@ -53,15 +53,45 @@ Visit `http://localhost:3000`
 
 ## Deployment
 
-### Vercel (Recommended)
+### Netlify (Recommended)
 
 1. Push to GitHub
-2. Import project in Vercel
-3. Add environment variables in Vercel dashboard:
+2. Import project in [Netlify](https://netlify.com)
+3. Add environment variables in Site Settings > Environment variables:
    - `NEXT_PUBLIC_SUPABASE_URL`
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
    - `SUPABASE_SERVICE_ROLE_KEY`
 4. Deploy
+
+#### Configure Custom Domain
+
+1. Go to Domain Settings > Add custom domain
+2. Enter your domain (e.g., `studysprout.com` or `app.studysprout.com`)
+3. Netlify will show DNS records to add to your domain registrar:
+
+For **root domain** (studysprout.com):
+```
+Type: A
+Name: @
+Value: 75.2.70.75
+```
+
+For **www subdomain**:
+```
+Type: CNAME
+Name: www
+Value: your-site.netlify.app
+```
+
+For **other subdomains** (app.studysprout.com):
+```
+Type: CNAME
+Name: app
+Value: your-site.netlify.app
+```
+
+4. Add the records in your domain registrar
+5. Netlify will auto-provision SSL certificates
 
 ### Supabase Setup
 
